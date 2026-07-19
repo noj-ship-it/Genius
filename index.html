@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Search</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    input {
+      width: 300px;
+      padding: 10px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 40px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Search</h1>
+
+  <input type="text" id="query" placeholder="検索ワードを入力">
+  <button onclick="search()">検索</button>
+
+  <div id="result"></div>
+
+  <script>
+    function search() {
+      const result = document.getElementById("result");
+      result.innerText = "結果が見つかりませんでした";
+    }
+  </script>
+
+</body>
+</html>
