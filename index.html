@@ -17,6 +17,7 @@
     button {
       padding: 10px 20px;
       font-size: 16px;
+      margin-left: 10px;
     }
     #result {
       margin-top: 40px;
@@ -26,7 +27,7 @@
 </head>
 <body>
 
-  <h1>Search</h1>
+  <h1>Genius Search</h1>
 
   <input type="text" id="query" placeholder="検索ワードを入力">
   <button onclick="search()">検索</button>
@@ -35,9 +36,29 @@
 
   <script>
     function search() {
+      const q = document.getElementById("query").value.trim(); // ←空白削除
       const result = document.getElementById("result");
-      result.innerText = "結果が見つかりませんでした";
+
+      // 空入力チェック
+      if (q === "") {
+        result.innerText = "検索ワードを入力してください";
+        return;
+      }
+
+      // 検索中表示
+      result.innerText = "検索中...";
+
+      setTimeout(() => {
+        result.innerText = `「${q}」に一致する結果は見つかりませんでした`;
+      }, 1000);
     }
+
+    // エンターキー対応
+    document.getElementById("query").addEventListener("keypress", function(e) {
+      if (e.key === "Enter") {
+        search();
+      }
+    });
   </script>
 
 </body>
